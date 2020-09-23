@@ -22,8 +22,8 @@ public class Email {
     @BeforeEach
     public void beforeEachTest() {
         final String MY_MAIL = "sdfsdfasdf98@yahoo.com";
-
         final String MY_PASSWORD = "SDFASDFASDF3Q4212A3";
+
         System.setProperty("webdriver.chrome.driver", "D:\\MyVisualStudioPrijects\\Old\\SteamProject3 - Copy\\WpfApp1\\bin\\x64\\Debug\\netcoreapp3.1\\chromedriver.exe");
 
         ChromeOptions chromeOptions = new ChromeOptions();
@@ -42,8 +42,10 @@ public class Email {
         clickOnElement(By.cssSelector("a[data-test-id=\"compose-button\"]"));
 
         sendKeysToElement(By.id("message-to-field"), MY_MAIL);
-
-
+        final  String THEME= "Hello word theme.";
+        sendKeysToElement(By.cssSelector("input[data-test-id=\"compose-subject\"]"),THEME);
+        final  String MESSAGE_BODY= "Hello word from message body.";
+        sendKeysToElement(By.cssSelector("div[data-test-id=\"rte\"]"),MESSAGE_BODY);
     }
 
     private void clickOnElement(By selector) {
@@ -80,6 +82,7 @@ public class Email {
 
             }
         }
+
         Assertions.fail();
     }
 
